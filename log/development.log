@@ -1,0 +1,110 @@
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (31.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (3.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTopics (20090613213009)
+  [4;36;1mSQL (2.7ms)[0m   [0;1mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090613213009')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("topics")[0m
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:33:38) [GET]
+  [4;36;1mTopic Load (2.6ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 213ms (View: 187, DB: 3) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#new (for 127.0.0.1 at 2009-06-13 14:33:53) [GET]
+Rendering template within layouts/topics
+Rendering topics/new
+Completed in 129ms (View: 105, DB: 0) | 200 OK [http://localhost/topics/new]
+
+
+Processing TopicsController#create (for 127.0.0.1 at 2009-06-13 14:34:15) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU=", "topic"=>{"title"=>"new data", "description"=>"ruby workshop new data"}}
+  [4;35;1mTopic Create (133.3ms)[0m   [0mINSERT INTO "topics" ("updated_at", "title", "description", "created_at") VALUES('2009-06-13 21:34:15', 'new data', 'ruby workshop new data', '2009-06-13 21:34:15')[0m
+Redirected to http://localhost:3000/topics/1
+Completed in 1101ms (DB: 133) | 302 Found [http://localhost/topics]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2009-06-13 14:34:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mTopic Load (1.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+Completed in 92ms (View: 60, DB: 1) | 200 OK [http://localhost/topics/1]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:38:27) [GET]
+  [4;35;1mTopic Load (1.8ms)[0m   [0mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 57ms (View: 19, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#new (for 127.0.0.1 at 2009-06-13 14:38:30) [GET]
+Rendering template within layouts/topics
+Rendering topics/new
+Completed in 57ms (View: 32, DB: 0) | 200 OK [http://localhost/topics/new]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:38:34) [GET]
+  [4;36;1mTopic Load (2.1ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 72ms (View: 22, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2009-06-13 14:38:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mTopic Load (1.0ms)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+Completed in 49ms (View: 24, DB: 1) | 200 OK [http://localhost/topics/1]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:38:43) [GET]
+  [4;36;1mTopic Load (1.7ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 66ms (View: 46, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#destroy (for 127.0.0.1 at 2009-06-13 14:38:48) [DELETE]
+  Parameters: {"authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU=", "id"=>"1"}
+  [4;35;1mTopic Load (1.0ms)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+  [4;36;1mTopic Destroy (1.1ms)[0m   [0;1mDELETE FROM "topics" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/topics
+Completed in 92ms (DB: 2) | 302 Found [http://localhost/topics/1]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:38:48) [GET]
+  [4;35;1mTopic Load (1.3ms)[0m   [0mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 49ms (View: 6, DB: 1) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:39:55) [GET]
+  [4;36;1mTopic Load (1.3ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 47ms (View: 17, DB: 1) | 200 OK [http://localhost/topics]
