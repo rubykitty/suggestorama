@@ -108,3 +108,148 @@ Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 14:39:55) [GET]
 Rendering template within layouts/topics
 Rendering topics/index
 Completed in 47ms (View: 17, DB: 1) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:24:12) [GET]
+  [4;36;1mTopic Load (1.4ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 165ms (View: 108, DB: 1) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:24:27) [GET]
+  [4;35;1mTopic Load (1.9ms)[0m   [0mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 44ms (View: 5, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:25:11) [GET]
+  [4;36;1mTopic Load (1.6ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 372ms (View: 145, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#new (for 127.0.0.1 at 2009-06-13 15:25:14) [GET]
+Rendering template within layouts/topics
+Rendering topics/new
+Completed in 628ms (View: 583, DB: 0) | 200 OK [http://localhost/topics/new]
+
+
+Processing TopicsController#create (for 127.0.0.1 at 2009-06-13 15:25:46) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU=", "topic"=>{"title"=>"ruby test", "description"=>"votes and topics"}}
+  [4;35;1mTopic Create (1.7ms)[0m   [0mINSERT INTO "topics" ("updated_at", "title", "description", "created_at") VALUES('2009-06-13 22:25:46', 'ruby test', 'votes and topics', '2009-06-13 22:25:46')[0m
+Redirected to http://localhost:3000/topics/2
+Completed in 171ms (DB: 2) | 302 Found [http://localhost/topics]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2009-06-13 15:25:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mTopic Load (1.1ms)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+Completed in 63ms (View: 29, DB: 1) | 200 OK [http://localhost/topics/2]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2009-06-13 15:25:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mTopic Load (1.0ms)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+Completed in 53ms (View: 28, DB: 1) | 200 OK [http://localhost/topics/2]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:25:55) [GET]
+  [4;36;1mTopic Load (1.7ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 43ms (View: 21, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-06-13 15:26:34) [POST]
+  Parameters: {"topic_id"=>"2", "authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU="}
+
+ActionController::UnknownAction (No action responded to create. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:40:32) [GET]
+  [4;36;1mTopic Load (2.0ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 144ms (View: 86, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-06-13 15:40:35) [POST]
+  Parameters: {"topic_id"=>"2", "authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU="}
+  [4;35;1mTopic Load (1.1ms)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+
+ActiveRecord::StatementInvalid (Could not find table 'votes'):
+  app/controllers/votes_controller.rb:5:in `create'
+
+Rendered rescues/_trace (258.5ms)
+Rendered rescues/_request_and_response (131.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTopics (20090613213009)
+Migrating to CreateVotes (20090613215812)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (3.9ms)[0m   [0mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "topic_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090613215812')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("topics")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("votes")[0m
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-06-13 15:41:41) [POST]
+  Parameters: {"topic_id"=>"2", "authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU="}
+  [4;36;1mTopic Load (1.7ms)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+  [4;36;1mVote Create (1.6ms)[0m   [0;1mINSERT INTO "votes" ("topic_id", "updated_at", "created_at") VALUES(2, '2009-06-13 22:41:41', '2009-06-13 22:41:41')[0m
+Redirected to http://localhost:3000/topics
+Completed in 315ms (DB: 3) | 302 Found [http://localhost/topics/2/votes]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:41:41) [GET]
+  [4;35;1mTopic Load (32.9ms)[0m   [0mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 156ms (View: 90, DB: 33) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:41:45) [GET]
+  [4;36;1mTopic Load (2.2ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 58ms (View: 32, DB: 2) | 200 OK [http://localhost/topics]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-06-13 15:41:47) [POST]
+  Parameters: {"topic_id"=>"2", "authenticity_token"=>"whTen2Cl9xgS0qXZC9Q0iAd3nd+yrTcrhm6lzJPMjVU="}
+  [4;35;1mTopic Load (1.3ms)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 2) [0m
+  [4;35;1mVote Create (1.4ms)[0m   [0mINSERT INTO "votes" ("topic_id", "updated_at", "created_at") VALUES(2, '2009-06-13 22:41:47', '2009-06-13 22:41:47')[0m
+Redirected to http://localhost:3000/topics
+Completed in 432ms (DB: 3) | 302 Found [http://localhost/topics/2/votes]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2009-06-13 15:41:48) [GET]
+  [4;36;1mTopic Load (1.8ms)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 48ms (View: 17, DB: 2) | 200 OK [http://localhost/topics]
